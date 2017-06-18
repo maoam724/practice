@@ -37,6 +37,10 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="13Z-42-55S" appends="YES" id="OoC-5s-MEZ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="myLabel" destination="LMP-HB-fyB" id="nOC-ZY-Wfw"/>
@@ -61,6 +65,11 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <tapGestureRecognizer id="13Z-42-55S">
+                    <connections>
+                        <action selector="tapView:" destination="BYZ-38-t0r" id="hpz-eq-vRF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="31.03448275862069"/>
         </scene>

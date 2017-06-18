@@ -45,6 +45,10 @@ class ViewController: UIViewController, UITextFieldDelegate  {
     
     }
     
+    @IBAction func tapView(_ sender: UITapGestureRecognizer) {
+        //編集終了でキーボードを下げる
+        view.endEditing(true)
+    }
     
 
 }
