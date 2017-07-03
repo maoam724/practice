@@ -34,9 +34,9 @@ class ViewController: UIViewController, UITextFieldDelegate  {
             //変更後が空ならばラベルに0を表示する
             myLabel.text = "0"
         } else {
-            //変更後の値を計算してラベルに表示する（25を掛けた値）
-            if let num = Int(replacedString) {
-            myLabel.text = String(num * 25)
+            //変更後の値を計算してラベルに表示する（1.08倍にした値）
+            if let num = Double(replacedString) {
+            myLabel.text = String(num * 1.08)
             }
         }
         
