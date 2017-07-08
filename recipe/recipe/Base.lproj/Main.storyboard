@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uzg-7y-H4V">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,51 +10,39 @@
     </dependencies>
     <scenes>
         <!--Ib Calendar Data Source-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="wpH-SM-kac">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="recipe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nff-3s-eEU" customClass="ViewController" customModule="recipe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="e8o-Za-EbB"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Rj-hA-Bqv"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="E8f-h6-sg5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bog-R1-RAx">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="24h-7J-dmH">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vko-LC-ScE">
-                                            <connections>
-                                                <segue destination="IjE-OL-06z" kind="show" id="n6x-KK-yRF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZA-bY-6Xx" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="64" width="320" height="337"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZZG-fZ-gyg" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="64" width="320" height="320"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="337" id="dhW-6I-daV"/>
+                                    <constraint firstAttribute="height" constant="320" id="Y1G-j1-he5"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7go-Si-bLA">
-                                    <size key="itemSize" width="123" height="123"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BTh-ey-7ZL">
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="MXC-eN-nyj" customClass="CalendarCell" customModule="recipe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="oc3-dZ-t3g" customClass="CalendarCell" customModule="recipe" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="123" height="123"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSB-EF-PCs">
-                                                    <rect key="frame" x="40" y="51" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgi-A2-cCw">
+                                                    <rect key="frame" x="4" y="14.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -62,84 +50,79 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="CSB-EF-PCs" firstAttribute="centerX" secondItem="MXC-eN-nyj" secondAttribute="centerX" id="Ud2-Xm-llZ"/>
-                                            <constraint firstItem="CSB-EF-PCs" firstAttribute="centerY" secondItem="MXC-eN-nyj" secondAttribute="centerY" id="pZe-bh-pAQ"/>
+                                            <constraint firstItem="sgi-A2-cCw" firstAttribute="centerX" secondItem="oc3-dZ-t3g" secondAttribute="centerX" id="sb7-Ve-Hdo"/>
+                                            <constraint firstItem="sgi-A2-cCw" firstAttribute="centerY" secondItem="oc3-dZ-t3g" secondAttribute="centerY" id="zUA-QQ-Ssa"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="label" destination="CSB-EF-PCs" id="Ekf-Aa-VgA"/>
+                                            <outlet property="label" destination="sgi-A2-cCw" id="d9y-Jn-g5u"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="ibCalendarDataSource" destination="BYZ-38-t0r" id="9fu-8h-SIy"/>
-                                    <outlet property="ibCalendarDelegate" destination="BYZ-38-t0r" id="GwE-es-mEM"/>
+                                    <outlet property="ibCalendarDataSource" destination="Nff-3s-eEU" id="Tff-bs-rhS"/>
+                                    <outlet property="ibCalendarDelegate" destination="Nff-3s-eEU" id="k01-rT-kM3"/>
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="bog-R1-RAx" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0Lc-fD-G96"/>
-                            <constraint firstItem="QZA-bY-6Xx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8yh-w1-Pmo"/>
-                            <constraint firstAttribute="trailing" secondItem="QZA-bY-6Xx" secondAttribute="trailing" id="Dfe-x4-eMI"/>
-                            <constraint firstItem="bog-R1-RAx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KnV-3r-I92"/>
-                            <constraint firstAttribute="trailing" secondItem="bog-R1-RAx" secondAttribute="trailing" id="SNd-5X-iAs"/>
-                            <constraint firstItem="QZA-bY-6Xx" firstAttribute="top" secondItem="bog-R1-RAx" secondAttribute="bottom" id="k15-4T-Hkq"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="133" y="93"/>
-        </scene>
-        <!--Add Recipe View Controller-->
-        <scene sceneID="ZuC-oh-NJi">
-            <objects>
-                <viewController id="IjE-OL-06z" customClass="AddRecipeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Wjf-Tj-HLw"/>
-                        <viewControllerLayoutGuide type="bottom" id="YGM-LH-4sx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7Zp-Vw-1Jh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZf-a4-Gk6">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Title" id="xfm-P6-APr">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="G9a-If-OYB">
-                                            <connections>
-                                                <action selector="onTapDoneButton:" destination="IjE-OL-06z" id="cp6-tZ-19Y"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HOG-7N-ofe">
-                                <rect key="frame" x="29" y="83" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fZf-a4-Gk6" firstAttribute="top" secondItem="Wjf-Tj-HLw" secondAttribute="bottom" id="2Ng-mQ-7jR"/>
-                            <constraint firstItem="fZf-a4-Gk6" firstAttribute="leading" secondItem="7Zp-Vw-1Jh" secondAttribute="leading" id="e3f-jm-CCK"/>
-                            <constraint firstAttribute="trailing" secondItem="fZf-a4-Gk6" secondAttribute="trailing" id="iqI-A0-Sf1"/>
+                            <constraint firstAttribute="trailing" secondItem="ZZG-fZ-gyg" secondAttribute="trailing" id="MmF-JD-RTp"/>
+                            <constraint firstItem="ZZG-fZ-gyg" firstAttribute="leading" secondItem="E8f-h6-sg5" secondAttribute="leading" id="Wev-Hb-4mA"/>
+                            <constraint firstItem="ZZG-fZ-gyg" firstAttribute="top" secondItem="e8o-Za-EbB" secondAttribute="bottom" id="cG1-rj-MCT"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
-                    <connections>
-                        <outlet property="onTapDoneButton" destination="G9a-If-OYB" id="KNt-i1-NaI"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="TyP-hz-mo1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="83u-Qf-JOX">
+                            <connections>
+                                <segue destination="l8p-Fm-MF1" kind="show" id="SyZ-Nh-anF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z15-sz-wk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EPW-b6-l5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840" y="93"/>
+            <point key="canvasLocation" x="1901.25" y="-335.91549295774649"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="bsx-vL-S2Q">
+            <objects>
+                <viewController id="l8p-Fm-MF1" customClass="AddRecipeViewController" customModule="recipe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="19o-V1-Bcm"/>
+                        <viewControllerLayoutGuide type="bottom" id="QnQ-hI-uy1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Hv-Pf-SkX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="rkq-4Z-Hgf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="BfJ-TR-oYb"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vHA-gV-aQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2869" y="-336"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6W5-s0-hOu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uzg-7y-H4V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kuh-KQ-O1r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Nff-3s-eEU" kind="relationship" relationship="rootViewController" id="ZOF-cw-Ky8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkg-sT-LcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903.75" y="-335.91549295774649"/>
         </scene>
     </scenes>
 </document>

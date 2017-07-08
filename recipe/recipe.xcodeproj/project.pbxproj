@@ -13,8 +13,8 @@
 		341116351F0A83C7001A39E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341116341F0A83C7001A39E7 /* Assets.xcassets */; };
 		341116381F0A83C7001A39E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341116361F0A83C7001A39E7 /* LaunchScreen.storyboard */; };
 		87338C912F12ECD628809F79 /* Pods_recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE6FA0C83AE93AC7B97B861 /* Pods_recipe.framework */; };
+		F53913DC1F1122F900AC11FA /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */; };
 		F57441FA1F111E1600818E82 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57441F91F111E1600818E82 /* CalendarCell.swift */; };
-		F57441FC1F111E2200818E82 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57441FB1F111E2200818E82 /* AddRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		341116371F0A83C7001A39E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		341116391F0A83C7001A39E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DF2029EE36CD128E2DC6BAD /* Pods-recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-recipe/Pods-recipe.debug.xcconfig"; sourceTree = "<group>"; };
+		F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		F57441F91F111E1600818E82 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
-		F57441FB1F111E2200818E82 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		FAE6FA0C83AE93AC7B97B861 /* Pods_recipe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_recipe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 			children = (
 				3411162D1F0A83C6001A39E7 /* AppDelegate.swift */,
 				3411162F1F0A83C6001A39E7 /* ViewController.swift */,
-				F57441FB1F111E2200818E82 /* AddRecipeViewController.swift */,
+				F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */,
 				F57441F91F111E1600818E82 /* CalendarCell.swift */,
 				341116311F0A83C7001A39E7 /* Main.storyboard */,
 				341116341F0A83C7001A39E7 /* Assets.xcassets */,
@@ -218,9 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F57441FC1F111E2200818E82 /* AddRecipeViewController.swift in Sources */,
 				341116301F0A83C6001A39E7 /* ViewController.swift in Sources */,
 				F57441FA1F111E1600818E82 /* CalendarCell.swift in Sources */,
+				F53913DC1F1122F900AC11FA /* AddRecipeViewController.swift in Sources */,
 				3411162E1F0A83C6001A39E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
