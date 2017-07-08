@@ -11,5 +11,6 @@ import UIKit
 class AddRecipeViewController: UIViewController {
     
     @IBAction func onTapDoneButton(_ sender: Any) {
+        print("押されたよー")
     }
 }
