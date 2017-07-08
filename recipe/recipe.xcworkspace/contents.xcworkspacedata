@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:AddRecipeViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:recipe/CalendarCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:recipe.xcodeproj">
    </FileRef>
    <FileRef
