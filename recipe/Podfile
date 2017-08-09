@@ -7,4 +7,5 @@ target 'recipe' do
 
   # Pods for recipe
 pod 'JTAppleCalendar', '~> 7.0'
+pod 'RealmSwift'
 end

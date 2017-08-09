@@ -1,12 +1,20 @@
 PODS:
   - JTAppleCalendar (7.0.4)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
 
 DEPENDENCIES:
   - JTAppleCalendar (~> 7.0)
+  - RealmSwift
 
 SPEC CHECKSUMS:
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
-PODFILE CHECKSUM: b7655a907e8ba5fda77ac1e3b09c1a27f13270c7
+PODFILE CHECKSUM: c8ad41d7f1b4cc7dc27c1bf11d157908b9a7b0e5
 
 COCOAPODS: 1.2.1
