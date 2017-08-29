@@ -77,10 +77,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="Nff-3s-eEU" id="pcF-cm-g7k"/>
-                                    <outlet property="delegate" destination="Nff-3s-eEU" id="wkW-ef-QaZ"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,6 +97,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="recipiesTable" destination="RDV-Nx-aMt" id="TWR-Ad-oz6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPW-b6-l5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
