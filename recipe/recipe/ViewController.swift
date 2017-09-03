@@ -13,6 +13,8 @@ import RealmSwift
 class ViewController: UIViewController {
     @IBOutlet weak var recipiesTable: UITableView!
     
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
+    
     let formatter = DateFormatter()
     var recipes: Results<Recipe>!
     var recipesForDate: Array<Recipe>!
@@ -26,6 +28,14 @@ class ViewController: UIViewController {
         recipesForDate = Array(recipes.filter { (recipe) -> Bool in
             Calendar.current.isDate(recipe.date, inSameDayAs: Date())
         })
+        
+        self.title = "201709"
+        
+        setUpCalendarview()
+    }
+    func setUpCalendarview() {
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
     }
     
     //realmから読み込む
@@ -45,7 +55,7 @@ class ViewController: UIViewController {
 }
 
 //カレンダー関連
-extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+extension ViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = Calendar.current.timeZone
@@ -59,9 +69,17 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         return paramaters
     }
     
+}
+
+extension ViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CalendarCell
         cell.label.text = cellState.text
+        if cellState.isSelected {
+            cell.selectedView.isHidden = false
+        } else {
+            cell.selectedView.isHidden = true
+        }
         
         let recipesOnDate = recipes.filter { (recipe) -> Bool in
             Calendar.current.isDate(recipe.date, inSameDayAs: date)
@@ -75,13 +93,26 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         cell.label.textColor = .red
         return cell
     }
-
+    
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         print("押されたよ〜" + String(describing: date))
         recipesForDate = Array(recipes.filter { (recipe) -> Bool in
             Calendar.current.isDate(recipe.date, inSameDayAs: date)
         })
         recipiesTable.reloadData()
+        
+        guard let validCell = cell as? CalendarCell else {
+            return
+        }
+        validCell.selectedView.isHidden = false
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        guard let validCell = cell as? CalendarCell else {
+            return
+        }
+        validCell.selectedView.isHidden = true
+
     }
 }
 
