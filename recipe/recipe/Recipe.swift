@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Recipe: Object {
+class Recipe: RObject {
     dynamic var date = Date()
     dynamic var name: String = ""
     dynamic var comment: String?

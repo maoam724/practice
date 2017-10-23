@@ -18,6 +18,44 @@ class ViewController: UIViewController {
     let formatter = DateFormatter()
     var recipes: Results<Recipe>!
     var recipesForDate: Array<Recipe>!
+    var selectedRecipe: Recipe!
+    
+    func handleCellTextColor(view: JTAppleCell?, cellState: CellState, hasRecipes: Bool) {
+        guard let validCell = view as? CalendarCell else {
+            print("invalidcell")
+        return
+        }
+        print(cellState.dateBelongsTo)
+        if cellState.isSelected {
+            if hasRecipes {
+                validCell.label.textColor = .red
+            } else {
+                validCell.label.textColor = .white
+            }
+        } else {
+            if cellState.dateBelongsTo == .thisMonth {
+                if hasRecipes {
+                    validCell.label.textColor = .red
+                } else {
+                    validCell.label.textColor = .black
+                }
+            } else {
+                validCell.label.textColor = .gray
+            }
+        }
+        
+    }
+    
+    func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
+        guard let validCell = view as? CalendarCell else {
+        return
+        }
+        if cellState.isSelected {
+            validCell.selectedView.isHidden = false
+        } else {
+            validCell.selectedView.isHidden = true
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +67,16 @@ class ViewController: UIViewController {
             Calendar.current.isDate(recipe.date, inSameDayAs: Date())
         })
         
-        self.title = "201709"
         
         setUpCalendarview()
     }
     func setUpCalendarview() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+        calendarView.visibleDates { (dates) in
+            let date = dates.monthDates.first?.date
+            self.title = self.dateToTitle(date!)
+        }
     }
     
     //realmから読み込む
@@ -75,22 +116,24 @@ extension ViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CalendarCell
         cell.label.text = cellState.text
-        if cellState.isSelected {
-            cell.selectedView.isHidden = false
-        } else {
-            cell.selectedView.isHidden = true
-        }
+       
+        handleCellSelected(view: cell, cellState: cellState)
         
         let recipesOnDate = recipes.filter { (recipe) -> Bool in
             Calendar.current.isDate(recipe.date, inSameDayAs: date)
         }
         
-        if recipesOnDate.isEmpty {
-            cell.label.textColor = .black
-            return cell
-        }
-        print(date)
-        cell.label.textColor = .red
+        handleCellTextColor(view: cell, cellState: cellState, hasRecipes: !recipesOnDate.isEmpty)
+        
+        
+        
+
+//        if recipesOnDate.isEmpty {
+//            cell.label.textColor = .black
+//            return cell
+//        }
+//        print(date)
+//        cell.label.textColor = .white
         return cell
     }
     
@@ -100,20 +143,38 @@ extension ViewController: JTAppleCalendarViewDelegate {
             Calendar.current.isDate(recipe.date, inSameDayAs: date)
         })
         recipiesTable.reloadData()
+        handleCellSelected(view: cell, cellState: cellState)
         
-        guard let validCell = cell as? CalendarCell else {
-            return
-        }
-        validCell.selectedView.isHidden = false
+        handleCellTextColor(view: cell, cellState: cellState, hasRecipes: !recipesForDate.isEmpty)
+    
+        
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        guard let validCell = cell as? CalendarCell else {
-            return
+        handleCellSelected(view: cell, cellState: cellState)
+        let recipesOnDate = recipes.filter { (recipe) -> Bool in
+            Calendar.current.isDate(recipe.date, inSameDayAs: date)
         }
-        validCell.selectedView.isHidden = true
+        handleCellTextColor(view: cell, cellState: cellState, hasRecipes: !recipesOnDate.isEmpty)
 
     }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        let date = visibleDates.monthDates.first!.date
+        
+        title = dateToTitle(date)
+    }
+    
+    func dateToTitle(_ date: Date) -> String {
+        formatter.dateFormat = "yyyy"
+        let year = formatter.string(from: date)
+        
+        formatter.dateFormat = "MMMM"
+        let month = formatter.string(from: date)
+        
+        return year + month
+    }
+    
 }
 
 //選択された日付に紐付くレシピを表示する
@@ -128,6 +189,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipesForDate.count
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRecipe = recipesForDate[indexPath.row]
+        performSegue(withIdentifier: "RecipeViewController", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier ?? "ないよ〜")
+        
+        if segue.identifier == "RecipeViewController" {
+            let recipeViewController = segue.destination as! RecipeViewController
+            print(selectedRecipe)
+            recipeViewController.recipe = selectedRecipe
+        }
+    }
     
 }
+
 

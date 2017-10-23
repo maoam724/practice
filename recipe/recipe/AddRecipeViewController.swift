@@ -88,11 +88,7 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func save(_ recipe: Recipe) -> Void {
-        let realm = try! Realm()
-        
-        try! realm.write {
-            realm.add(recipe)
-        }
+        recipe.save()
     }
     
     func presentAlert() {
