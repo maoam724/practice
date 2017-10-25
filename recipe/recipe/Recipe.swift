@@ -14,4 +14,9 @@ class Recipe: RObject {
     dynamic var name: String = ""
     dynamic var comment: String?
     let materials = List<RealmString>()
+    
+    
+    
+    
+    
 }

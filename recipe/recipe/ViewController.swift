@@ -63,8 +63,9 @@ class ViewController: UIViewController {
         recipiesTable.dataSource = self
         
         recipes = loadRecipes()
-        recipesForDate = Array(recipes.filter { (recipe) -> Bool in
-            Calendar.current.isDate(recipe.date, inSameDayAs: Date())
+        let today = Date()
+        recipesForDate = Array(recipes.filter { (recipe:Recipe) -> Bool in
+            return Calendar.current.isDate(recipe.date, inSameDayAs: today)
         })
         
         
@@ -83,9 +84,6 @@ class ViewController: UIViewController {
     func loadRecipes() -> Results<Recipe> {
         let realm = try! Realm()
         let recipes = realm.objects(Recipe.self)
-        for recipe in recipes {
-            print(recipe)
-        }
         return recipes
     }
 
@@ -103,7 +101,7 @@ extension ViewController: JTAppleCalendarViewDataSource {
         formatter.locale = Calendar.current.locale
         
         //表示させる日付の範囲
-        let startDate = formatter.date(from: "2017 01 01")!
+        let startDate = formatter.date(from: "2017 10 01")!
         let endDate = formatter.date(from: "2017 12 31")!
         
         let paramaters = ConfigurationParameters(startDate: startDate, endDate: endDate)
@@ -200,7 +198,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "RecipeViewController" {
             let recipeViewController = segue.destination as! RecipeViewController
             print(selectedRecipe)
-            recipeViewController.recipe = selectedRecipe
+            recipeViewController.id = selectedRecipe.id
         }
     }
     

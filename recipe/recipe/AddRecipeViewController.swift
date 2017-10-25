@@ -43,7 +43,7 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate {
         let spaceBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace,target: self,action: nil)
         
         //完了ボタンを設定
-        let toolBarBtn      = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(self.toolBarBtnPush(sender:)))
+        let toolBarBtn = UIBarButtonItem(title: "完了", style: .done, target: self, action: #selector(self.toolBarBtnPush(sender:)))
         
         //ツールバーにボタンを表示
         pickerToolBar.items = [spaceBarBtn, toolBarBtn]

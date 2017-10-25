@@ -7,21 +7,41 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RecipeViewController: UIViewController {
+
     @IBOutlet weak var name: UILabel!
-    
     @IBOutlet weak var date: UILabel!
-    
     @IBOutlet weak var comment: UILabel!
-    
     @IBOutlet weak var material: UILabel!
     
-    var recipe:Recipe?
-    
+    var id:Int?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(recipe ?? "nilだよ〜")
+        print(id ?? "nilです")
+        
+        let recipes = loadRecipes()
+        
+        let recipe = recipes.filter { (recipe) -> Bool in
+           print(recipe.id)
+            return true
+        }
+        print("これ", recipe)
+        
     }
     
+    func loadRecipes() -> Results<Recipe> {
+        let realm = try! Realm()
+        let recipes = realm.objects(Recipe.self)
+        return recipes
+    }
+    
+    
+    
+    
+    
 }
+
+
