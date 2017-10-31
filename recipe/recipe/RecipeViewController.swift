@@ -24,11 +24,11 @@ class RecipeViewController: UIViewController {
         
         let recipes = loadRecipes()
         
-        let recipe = recipes.filter { (recipe) -> Bool in
-           print(recipe.id)
-            return true
-        }
-        print("これ", recipe)
+        let recipe = recipes.first(where: { (recipe) -> Bool in
+            return self.hasSameId(recipe)
+        })
+
+        print("これ", recipe!)
         
     }
     
@@ -36,6 +36,10 @@ class RecipeViewController: UIViewController {
         let realm = try! Realm()
         let recipes = realm.objects(Recipe.self)
         return recipes
+    }
+    
+    func hasSameId(_ recipe:  Recipe) -> Bool {
+        return recipe.id == id
     }
     
     
