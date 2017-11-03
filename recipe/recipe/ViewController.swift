@@ -123,17 +123,17 @@ extension ViewController: JTAppleCalendarViewDelegate {
         
         handleCellTextColor(view: cell, cellState: cellState, hasRecipes: !recipesOnDate.isEmpty)
         
-        
+        return cell
         
 
-//        if recipesOnDate.isEmpty {
+    }//        if recipesOnDate.isEmpty {
 //            cell.label.textColor = .black
 //            return cell
 //        }
 //        print(date)
 //        cell.label.textColor = .white
-        return cell
-    }
+//        return cell
+
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         print("押されたよ〜" + String(describing: date))
@@ -164,7 +164,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
     }
     
     func dateToTitle(_ date: Date) -> String {
-        formatter.dateFormat = "yyyy"
+        formatter.dateFormat = "yyyy "
         let year = formatter.string(from: date)
         
         formatter.dateFormat = "MMMM"

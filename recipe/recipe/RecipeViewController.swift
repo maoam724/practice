@@ -11,10 +11,12 @@ import RealmSwift
 
 class RecipeViewController: UIViewController {
 
-    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var name: UILabel!
     @IBOutlet weak var comment: UILabel!
     @IBOutlet weak var material: UILabel!
+    
+    let formatter = DateFormatter()
     
     var id:Int?
 
@@ -30,7 +32,21 @@ class RecipeViewController: UIViewController {
 
         print("これ", recipe!)
         
+        date.text = dateFormatter((recipe?.date)!)
+        name.text = recipe?.name
+        comment.text = recipe?.comment
+        
+        for value in (recipe?.materials)! {
+            material.text = value.value
+        }
+        
+//        print("材料",recipe?.materials ?? "nilでーす")
+
+//        var theMaterial = (recipe?.materials)!
+//        print(String(describing: type(of: theMaterial)))
+        
     }
+  
     
     func loadRecipes() -> Results<Recipe> {
         let realm = try! Realm()
@@ -42,10 +58,15 @@ class RecipeViewController: UIViewController {
         return recipe.id == id
     }
     
-    
-    
+    func dateFormatter(_ date: Date) -> String {
+        formatter.dateFormat = "yyyy年 MM月 dd日"
+        let ymd = formatter.string(from: date)
+        return ymd
+    }
     
     
 }
+
+
 
 
