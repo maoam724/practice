@@ -83,7 +83,7 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate {
         realmMaterial.value = material
         recipe.materials.append(realmMaterial)
         save(recipe)
-//        print(recipe)
+        print(recipe)
         navigationController?.popViewController(animated: true)
     }
     

@@ -11,6 +11,9 @@ import JTAppleCalendar
 import RealmSwift
 
 class ViewController: UIViewController {
+    
+    
+    
     @IBOutlet weak var recipiesTable: UITableView!
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -20,6 +23,8 @@ class ViewController: UIViewController {
     var recipesForDate: Array<Recipe>!
     var selectedRecipe: Recipe!
     
+    
+        
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState, hasRecipes: Bool) {
         guard let validCell = view as? CalendarCell else {
             print("invalidcell")
@@ -68,9 +73,9 @@ class ViewController: UIViewController {
             return Calendar.current.isDate(recipe.date, inSameDayAs: today)
         })
         
-        
         setUpCalendarview()
     }
+    
     func setUpCalendarview() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
@@ -167,7 +172,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
         formatter.dateFormat = "yyyy "
         let year = formatter.string(from: date)
         
-        formatter.dateFormat = "MMMM"
+        formatter.dateFormat = "-MMMM-"
         let month = formatter.string(from: date)
         
         return year + month
@@ -200,6 +205,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             print(selectedRecipe)
             recipeViewController.id = selectedRecipe.id
         }
+    }
+    
+    @IBAction func TupMenu(sender: AnyObject) {
+        sideMenuCall()
+    }
+    
+    func sideMenuCall() {
+        self.performSegue(withIdentifier: "sideMenuSegue", sender: nil)
     }
     
 }
