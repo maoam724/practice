@@ -10,8 +10,8 @@ import UIKit
 import JTAppleCalendar
 import RealmSwift
 
+
 class ViewController: UIViewController {
-    
     
     
     @IBOutlet weak var recipiesTable: UITableView!
@@ -33,14 +33,14 @@ class ViewController: UIViewController {
         print(cellState.dateBelongsTo)
         if cellState.isSelected {
             if hasRecipes {
-                validCell.label.textColor = .red
-            } else {
                 validCell.label.textColor = .white
+            } else {
+                validCell.label.textColor = .black
             }
         } else {
             if cellState.dateBelongsTo == .thisMonth {
                 if hasRecipes {
-                    validCell.label.textColor = .red
+                    validCell.label.textColor = .white
                 } else {
                     validCell.label.textColor = .black
                 }
@@ -48,6 +48,7 @@ class ViewController: UIViewController {
                 validCell.label.textColor = .gray
             }
         }
+        
         
     }
     
@@ -61,6 +62,7 @@ class ViewController: UIViewController {
             validCell.selectedView.isHidden = true
         }
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,6 +98,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
 }
 
 //カレンダー関連
@@ -207,13 +211,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    @IBAction func TupMenu(sender: AnyObject) {
-        sideMenuCall()
-    }
-    
-    func sideMenuCall() {
-        self.performSegue(withIdentifier: "sideMenuSegue", sender: nil)
-    }
     
 }
 

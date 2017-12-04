@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import Photos
+import AssetsLibrary
 
 class RecipeViewController: UIViewController {
 
@@ -15,6 +17,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var comment: UILabel!
     @IBOutlet weak var material: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     let formatter = DateFormatter()
     
@@ -23,6 +26,10 @@ class RecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(id ?? "nilです")
+        
+        var myImage = UIImage(named: "defaultImage.png")
+        
+//        image.image = UIImage(defaultImage.png)
         
         let recipes = loadRecipes()
         
@@ -36,17 +43,24 @@ class RecipeViewController: UIViewController {
         name.text = recipe?.name
         comment.text = recipe?.comment
         
+        image.image = UIImage(named: "defaultImage.png")
+        self.view.addSubview(image)
+        print(myImage ?? "画像なし")
+        
+        
+        image.image = UIImage(named: "defaultImage.png")
+        self.view.addSubview(image)
+        print((recipe?.image)!)
+        
+        
         for value in (recipe?.materials)! {
             material.text = value.value
         }
         
-//        print("材料",recipe?.materials ?? "nilでーす")
-
-//        var theMaterial = (recipe?.materials)!
-//        print(String(describing: type(of: theMaterial)))
-        
+      
     }
-  
+    
+   
     
     func loadRecipes() -> Results<Recipe> {
         let realm = try! Realm()

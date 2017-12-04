@@ -8,10 +8,42 @@
 
 import UIKit
 import RealmSwift
+import AssetsLibrary
 
-class AddRecipeViewController: UIViewController, UITextFieldDelegate {
+class AddRecipeViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+
+    @IBOutlet weak var imageView: UIImageView!
+    
+    //カメラロールから画像を選択
+    @IBAction func chooseImage(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            //写真を選択するビュー
+            let pickerView = UIImagePickerController()
+            //写真の選択元をカメラロールにする（.cameraにすればカメラを起動）
+            pickerView.sourceType = .photoLibrary
+            pickerView.delegate = self
+            self.present(pickerView, animated: true)
+        }
+    }
+    
+    @IBAction func resetImage(_ sender: Any) {
+        //アラートで確認
+        let alert = UIAlertController(title: "確認", message: "削除しますか？", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) -> Void in
+            //デフォルトの画像を確認
+            self.imageView.image = UIImage(named: "defaultImage.png")
+        })
+        let cancelButton = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
+        //アラートにボタンを追加
+        alert.addAction(okButton)
+        alert.addAction(cancelButton)
+        //アラートを表示
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var recipeNameField: UITextField!
+
     @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var materialField: UITextField!
     @IBOutlet weak var dateSelecter: UITextField!
@@ -20,8 +52,12 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate {
     let dateFormat = DateFormatter()
     let inputDatePicker = UIDatePicker()
     
+    var image:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imageView.image = UIImage(named: "defaultImage.png")
         
         dateFormat.dateFormat = "yyyy年MM月dd日"
         dateSelecter.text = dateFormat.string(from: nowDate)
@@ -78,13 +114,17 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate {
         recipe.date = dateFormat.date(from: dateStr)!
         recipe.name = recipeName
         recipe.comment = comment
+        recipe.image = self.image
         
         let realmMaterial = RealmString()
         realmMaterial.value = material
         recipe.materials.append(realmMaterial)
         save(recipe)
         print(recipe)
+        print(self.image ?? "画像なし")
+
         navigationController?.popViewController(animated: true)
+       
     }
     
     func save(_ recipe: Recipe) -> Void {
@@ -102,6 +142,27 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate {
         
         present(alert, animated: true)
     }
-
+    
+    //写真を選んだ後に実行される処理
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        //選択された画像を取得
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //ビューに表示
+        self.imageView.image = image
+        // 画像のパスを取得
+        let imageUrl = info[UIImagePickerControllerReferenceURL] as? NSURL
+        let recipe = Recipe()
+        recipe.image = imageUrl?.absoluteString
+        self.image = recipe.image
+        print(recipe.image ?? "中身なし")
+        
+        //写真を選ぶビューを引っ込める
+        self.dismiss(animated: true)
+        
+    }
+    
+    
+    
+    
 }
 

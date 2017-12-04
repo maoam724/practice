@@ -97,7 +97,7 @@
                                                     <subviews>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELb-Tf-f7P">
                                                             <rect key="frame" x="5" y="4.5" width="40" height="40"/>
-                                                            <color key="backgroundColor" red="0.63997237410821417" green="0.98119737694300513" blue="0.93317612133892047" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.33654341374175489" green="0.83188669588486197" blue="0.98119737694300513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="2Ak-oL-ENh"/>
                                                                 <constraint firstAttribute="width" constant="40" id="YQv-dY-IUm"/>
@@ -205,28 +205,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="料理名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSu-zs-PSL">
-                                <rect key="frame" x="16" y="121" width="138" height="30"/>
+                                <rect key="frame" x="16" y="294" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-t1-6yW">
-                                <rect key="frame" x="16" y="159" width="138" height="30"/>
+                                <rect key="frame" x="16" y="332" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="材料" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNl-jt-EsS">
-                                <rect key="frame" x="16" y="197" width="138" height="30"/>
+                                <rect key="frame" x="16" y="370" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yzq-df-qb8" userLabel="ImageView">
+                                <rect key="frame" x="40" y="80" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-iI-lL4" userLabel="chooseImage">
+                                <rect key="frame" x="64" y="216" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="画像選択"/>
+                                <connections>
+                                    <action selector="chooseImage:" destination="l8p-Fm-MF1" eventType="touchUpInside" id="kj6-WO-NMD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsW-Pq-ahW" userLabel="resetImage">
+                                <rect key="frame" x="190" y="216" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="画像削除"/>
+                                <connections>
+                                    <action selector="resetImage:" destination="l8p-Fm-MF1" eventType="touchUpInside" id="aOh-zk-Rke"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日付" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltv-uT-r4O">
-                                <rect key="frame" x="16" y="83" width="138" height="30"/>
+                                <rect key="frame" x="16" y="256" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -247,13 +267,14 @@
                     <connections>
                         <outlet property="commentField" destination="ZY3-t1-6yW" id="RqW-FY-QQo"/>
                         <outlet property="dateSelecter" destination="Ltv-uT-r4O" id="9mH-ar-CHw"/>
+                        <outlet property="imageView" destination="Yzq-df-qb8" id="BJo-hf-6FH"/>
                         <outlet property="materialField" destination="QNl-jt-EsS" id="fUR-zh-Wng"/>
                         <outlet property="recipeNameField" destination="tSu-zs-PSL" id="4Pn-MY-Ukn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHA-gV-aQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2944" y="-336"/>
+            <point key="canvasLocation" x="2943.75" y="-336.97183098591552"/>
         </scene>
         <!--Recipe View Controller-->
         <scene sceneID="wMR-Hp-JEo">
@@ -295,12 +316,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-wk-0y1">
+                                <rect key="frame" x="36" y="308" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="comment" destination="P97-wt-8nk" id="uc4-iZ-2Td"/>
                         <outlet property="date" destination="lld-Os-qFN" id="WyI-3Z-lCP"/>
+                        <outlet property="image" destination="4XJ-wk-0y1" id="a6J-xQ-kMk"/>
                         <outlet property="material" destination="cnV-Oq-xIV" id="WH2-v9-eJy"/>
                         <outlet property="name" destination="RKe-aU-jmj" id="1jD-dT-s7H"/>
                     </connections>
