@@ -31,7 +31,7 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate, UIImagePic
         //アラートで確認
         let alert = UIAlertController(title: "確認", message: "削除しますか？", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) -> Void in
-            //デフォルトの画像を確認
+            //デフォルトの画像
             self.imageView.image = UIImage(named: "defaultImage.png")
         })
         let cancelButton = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
@@ -72,7 +72,6 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate, UIImagePic
         pickerToolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         pickerToolBar.barStyle = .blackOpaque
         pickerToolBar.tintColor = UIColor.white
-//        pickerToolBar.backgroundColor = UIColor.black
         
         //ボタンの設定
         //右寄せのためのスペース設定

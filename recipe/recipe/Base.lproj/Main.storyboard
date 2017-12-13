@@ -378,18 +378,26 @@
                                     <action selector="randomButton:" destination="7Q9-Lc-vV7" eventType="touchUpInside" id="vdg-W0-PU1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scL-K3-KCE" userLabel="詳しく">
+                                <rect key="frame" x="137" y="353" width="46" height="30"/>
+                                <state key="normal" title="詳しく"/>
+                                <connections>
+                                    <segue destination="0b7-tl-nST" kind="show" identifier="RecipeViewController" id="5V8-Pf-wGS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OUw-9O-gcF" firstAttribute="top" secondItem="8K5-l7-aXh" secondAttribute="bottom" constant="50" id="8K0-lp-WvL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8K5-l7-aXh" secondAttribute="trailing" constant="83" id="HGx-X0-EpY"/>
                             <constraint firstItem="8K5-l7-aXh" firstAttribute="leading" secondItem="A5x-15-iTX" secondAttribute="leadingMargin" constant="83" id="JbV-Nk-Wqi"/>
+                            <constraint firstItem="scL-K3-KCE" firstAttribute="top" secondItem="5kQ-Gb-EdE" secondAttribute="bottom" constant="34" id="KYE-Bu-k7V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OUw-9O-gcF" secondAttribute="trailing" constant="12" id="Lhg-ub-Aaf"/>
                             <constraint firstItem="OUw-9O-gcF" firstAttribute="leading" secondItem="A5x-15-iTX" secondAttribute="leadingMargin" constant="12" id="TEd-fK-TPZ"/>
                             <constraint firstItem="5kQ-Gb-EdE" firstAttribute="top" secondItem="OUw-9O-gcF" secondAttribute="bottom" constant="70" id="V2P-Uq-jC3"/>
-                            <constraint firstItem="5kQ-Gb-EdE" firstAttribute="leading" secondItem="A5x-15-iTX" secondAttribute="leadingMargin" constant="102" id="gNq-09-dA1"/>
+                            <constraint firstItem="5kQ-Gb-EdE" firstAttribute="centerX" secondItem="A5x-15-iTX" secondAttribute="centerX" id="aub-un-4yF"/>
+                            <constraint firstItem="scL-K3-KCE" firstAttribute="centerX" secondItem="A5x-15-iTX" secondAttribute="centerX" id="kVa-FW-E5E"/>
                             <constraint firstItem="8K5-l7-aXh" firstAttribute="top" secondItem="MB6-Dt-DYp" secondAttribute="bottom" constant="50" id="rhQ-rn-DW7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5kQ-Gb-EdE" secondAttribute="trailing" constant="102" id="xaE-3h-GIw"/>
                         </constraints>
                     </view>
                     <connections>
@@ -420,4 +428,7 @@
             <point key="canvasLocation" x="903.75" y="-335.91549295774649"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5V8-Pf-wGS"/>
+    </inferredMetricsTieBreakers>
 </document>

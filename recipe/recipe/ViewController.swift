@@ -85,6 +85,7 @@ class ViewController: UIViewController {
             let date = dates.monthDates.first?.date
             self.title = self.dateToTitle(date!)
         }
+        calendarView.selectDates(from: Date(), to: Date())
     }
     
     //realmから読み込む
@@ -110,7 +111,7 @@ extension ViewController: JTAppleCalendarViewDataSource {
         formatter.locale = Calendar.current.locale
         
         //表示させる日付の範囲
-        let startDate = formatter.date(from: "2017 10 01")!
+        let startDate = formatter.date(from: "2017 01 01")!
         let endDate = formatter.date(from: "2017 12 31")!
         
         let paramaters = ConfigurationParameters(startDate: startDate, endDate: endDate)
