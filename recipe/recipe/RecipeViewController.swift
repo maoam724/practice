@@ -18,6 +18,10 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var material: UILabel!
     @IBOutlet weak var image: UIImageView!
     
+    @IBAction func onTapButton(_ sender: Any) {
+        delAlart()
+    }
+    
     let formatter = DateFormatter()
     
     var id:Int?
@@ -123,6 +127,39 @@ class RecipeViewController: UIViewController {
             print(recipe.image ?? "画像URL削除されたよ〜")
         }
     }
+    
+    func delAlart() {
+        
+        let alert  = UIAlertController.init(
+            title: "レシピの削除",
+            message: "削除してよろしいですか？",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(
+            title: "削除",
+            style: .destructive,
+            handler: { (UIAlertAction) in
+                self.delRecipe()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        
+        present(alert, animated: true)
+    }
+    
+    func delRecipe() {
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(recipe)
+        }
+        
+        navigationController?.popViewController(animated: true)
+        
+    }
+    
+    
     
 }
 

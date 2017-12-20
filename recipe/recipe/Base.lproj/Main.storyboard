@@ -323,6 +323,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="9ll-NE-2wX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="erJ-8r-eRZ">
+                            <connections>
+                                <action selector="onTapButton:" destination="0b7-tl-nST" id="PwA-Xv-Rd7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="comment" destination="P97-wt-8nk" id="uc4-iZ-2Td"/>
                         <outlet property="date" destination="lld-Os-qFN" id="WyI-3Z-lCP"/>

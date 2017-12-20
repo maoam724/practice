@@ -18,7 +18,6 @@
 		34EF4DD51F36DAED003C2A51 /* RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF4DD41F36DAED003C2A51 /* RealmString.swift */; };
 		34F2AFC11F93239E001845F8 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2AFC01F93239E001845F8 /* RecipeViewController.swift */; };
 		34FC518A1FB9D32300D39808 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC51891FB9D32300D39808 /* defaultImage.png */; };
-		34FC518C1FBA08B300D39808 /* Materials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FC518B1FBA08B300D39808 /* Materials.swift */; };
 		87338C912F12ECD628809F79 /* Pods_recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE6FA0C83AE93AC7B97B861 /* Pods_recipe.framework */; };
 		F53913DC1F1122F900AC11FA /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */; };
 		F57441FA1F111E1600818E82 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57441F91F111E1600818E82 /* CalendarCell.swift */; };
@@ -39,7 +38,6 @@
 		34EF4DD41F36DAED003C2A51 /* RealmString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmString.swift; sourceTree = "<group>"; };
 		34F2AFC01F93239E001845F8 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
 		34FC51891FB9D32300D39808 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
-		34FC518B1FBA08B300D39808 /* Materials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Materials.swift; sourceTree = "<group>"; };
 		7DF2029EE36CD128E2DC6BAD /* Pods-recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-recipe/Pods-recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		F57441F91F111E1600818E82 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				3411162D1F0A83C6001A39E7 /* AppDelegate.swift */,
 				34F2AFC01F93239E001845F8 /* RecipeViewController.swift */,
 				34EF4DD21F36D9AF003C2A51 /* Recipe.swift */,
-				34FC518B1FBA08B300D39808 /* Materials.swift */,
 				34AD32DB1F9B523F00F729FD /* RObject.swift */,
 				34EF4DD41F36DAED003C2A51 /* RealmString.swift */,
 				3411162F1F0A83C6001A39E7 /* ViewController.swift */,
@@ -246,7 +243,6 @@
 				3498B6661FB0995F006909AD /* RandomRacipesViewController.swift in Sources */,
 				34F2AFC11F93239E001845F8 /* RecipeViewController.swift in Sources */,
 				F57441FA1F111E1600818E82 /* CalendarCell.swift in Sources */,
-				34FC518C1FBA08B300D39808 /* Materials.swift in Sources */,
 				F53913DC1F1122F900AC11FA /* AddRecipeViewController.swift in Sources */,
 				3411162E1F0A83C6001A39E7 /* AppDelegate.swift in Sources */,
 				34EF4DD31F36D9AF003C2A51 /* Recipe.swift in Sources */,

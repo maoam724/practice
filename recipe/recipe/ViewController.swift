@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     var recipes: Results<Recipe>!
     var recipesForDate: Array<Recipe>!
     var selectedRecipe: Recipe!
-    
+    var selectedDate: Date = Date()
+    let realm = try! Realm()
     
         
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState, hasRecipes: Bool) {
@@ -71,12 +72,20 @@ class ViewController: UIViewController {
         
         recipes = loadRecipes()
         let today = Date()
-        recipesForDate = Array(recipes.filter { (recipe:Recipe) -> Bool in
+        recipesForDate = recipes.filter { (recipe:Recipe) -> Bool in
             return Calendar.current.isDate(recipe.date, inSameDayAs: today)
-        })
+        }
         
         setUpCalendarview()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        calendarView.reloadData()
+    }
+    
+    
     
     func setUpCalendarview() {
         calendarView.minimumLineSpacing = 0
@@ -85,12 +94,11 @@ class ViewController: UIViewController {
             let date = dates.monthDates.first?.date
             self.title = self.dateToTitle(date!)
         }
-        calendarView.selectDates(from: Date(), to: Date())
     }
     
     //realmから読み込む
     func loadRecipes() -> Results<Recipe> {
-        let realm = try! Realm()
+        
         let recipes = realm.objects(Recipe.self)
         return recipes
     }
@@ -112,11 +120,17 @@ extension ViewController: JTAppleCalendarViewDataSource {
         
         //表示させる日付の範囲
         let startDate = formatter.date(from: "2017 01 01")!
-        let endDate = formatter.date(from: "2017 12 31")!
+        let endDate = formatter.date(from: "2018 12 31")!
+        
+        //起動時の日付を取得し表示
+        calendarView.scrollToDate(selectedDate, animateScroll: false)
+        calendarView.selectDates([selectedDate])
         
         let paramaters = ConfigurationParameters(startDate: startDate, endDate: endDate)
         return paramaters
     }
+    
+    
     
 }
 
@@ -136,14 +150,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
         return cell
         
 
-    }//        if recipesOnDate.isEmpty {
-//            cell.label.textColor = .black
-//            return cell
-//        }
-//        print(date)
-//        cell.label.textColor = .white
-//        return cell
-
+    }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         print("押されたよ〜" + String(describing: date))
@@ -154,7 +161,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
         handleCellSelected(view: cell, cellState: cellState)
         
         handleCellTextColor(view: cell, cellState: cellState, hasRecipes: !recipesForDate.isEmpty)
-    
+        self.selectedDate = date
         
     }
     
@@ -212,6 +219,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let selectedRecipe = recipesForDate[indexPath.row]
+            try! realm.write {
+                realm.delete(selectedRecipe)
+            }
+            recipesForDate = recipes.filter { (recipe:Recipe) -> Bool in
+                return Calendar.current.isDate(recipe.date, inSameDayAs: self.selectedDate)
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
 }
 
