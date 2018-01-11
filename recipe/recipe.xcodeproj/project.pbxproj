@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		3411162E1F0A83C6001A39E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411162D1F0A83C6001A39E7 /* AppDelegate.swift */; };
 		341116301F0A83C6001A39E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411162F1F0A83C6001A39E7 /* ViewController.swift */; };
-		341116331F0A83C7001A39E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341116311F0A83C7001A39E7 /* Main.storyboard */; };
 		341116351F0A83C7001A39E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341116341F0A83C7001A39E7 /* Assets.xcassets */; };
 		341116381F0A83C7001A39E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341116361F0A83C7001A39E7 /* LaunchScreen.storyboard */; };
+		342F2E361FEA5725006D59DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342F2E351FEA5725006D59DB /* Main.storyboard */; };
+		345438741FFCDB62002BED39 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345438731FFCDB62002BED39 /* SideMenu.swift */; };
 		3498B6661FB0995F006909AD /* RandomRacipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498B6651FB0995F006909AD /* RandomRacipesViewController.swift */; };
 		34AD32DC1F9B523F00F729FD /* RObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD32DB1F9B523F00F729FD /* RObject.swift */; };
 		34EF4DD31F36D9AF003C2A51 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF4DD21F36D9AF003C2A51 /* Recipe.swift */; };
@@ -28,10 +29,11 @@
 		3411162A1F0A83C6001A39E7 /* recipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = recipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3411162D1F0A83C6001A39E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3411162F1F0A83C6001A39E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		341116321F0A83C7001A39E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		341116341F0A83C7001A39E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		341116371F0A83C7001A39E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		341116391F0A83C7001A39E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		342F2E351FEA5725006D59DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		345438731FFCDB62002BED39 /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		3498B6651FB0995F006909AD /* RandomRacipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomRacipesViewController.swift; sourceTree = "<group>"; };
 		34AD32DB1F9B523F00F729FD /* RObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RObject.swift; sourceTree = "<group>"; };
 		34EF4DD21F36D9AF003C2A51 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
@@ -86,7 +88,8 @@
 				F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */,
 				F57441F91F111E1600818E82 /* CalendarCell.swift */,
 				3498B6651FB0995F006909AD /* RandomRacipesViewController.swift */,
-				341116311F0A83C7001A39E7 /* Main.storyboard */,
+				342F2E351FEA5725006D59DB /* Main.storyboard */,
+				345438731FFCDB62002BED39 /* SideMenu.swift */,
 				341116341F0A83C7001A39E7 /* Assets.xcassets */,
 				341116361F0A83C7001A39E7 /* LaunchScreen.storyboard */,
 				341116391F0A83C7001A39E7 /* Info.plist */,
@@ -177,8 +180,8 @@
 			files = (
 				341116381F0A83C7001A39E7 /* LaunchScreen.storyboard in Resources */,
 				341116351F0A83C7001A39E7 /* Assets.xcassets in Resources */,
-				341116331F0A83C7001A39E7 /* Main.storyboard in Resources */,
 				34FC518A1FB9D32300D39808 /* defaultImage.png in Resources */,
+				342F2E361FEA5725006D59DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +247,7 @@
 				34F2AFC11F93239E001845F8 /* RecipeViewController.swift in Sources */,
 				F57441FA1F111E1600818E82 /* CalendarCell.swift in Sources */,
 				F53913DC1F1122F900AC11FA /* AddRecipeViewController.swift in Sources */,
+				345438741FFCDB62002BED39 /* SideMenu.swift in Sources */,
 				3411162E1F0A83C6001A39E7 /* AppDelegate.swift in Sources */,
 				34EF4DD31F36D9AF003C2A51 /* Recipe.swift in Sources */,
 			);
@@ -252,14 +256,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		341116311F0A83C7001A39E7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				341116321F0A83C7001A39E7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		341116361F0A83C7001A39E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

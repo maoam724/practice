@@ -18,12 +18,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
+    
     let formatter = DateFormatter()
     var recipes: Results<Recipe>!
     var recipesForDate: Array<Recipe>!
     var selectedRecipe: Recipe!
     var selectedDate: Date = Date()
     let realm = try! Realm()
+    
     
         
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState, hasRecipes: Bool) {
@@ -46,7 +48,7 @@ class ViewController: UIViewController {
                     validCell.label.textColor = .black
                 }
             } else {
-                validCell.label.textColor = .gray
+                validCell.label.textColor = .lightGray
             }
         }
         
@@ -75,17 +77,17 @@ class ViewController: UIViewController {
         recipesForDate = recipes.filter { (recipe:Recipe) -> Bool in
             return Calendar.current.isDate(recipe.date, inSameDayAs: today)
         }
-        
         setUpCalendarview()
+        
     }
     
+    
+    //カレンダー画面に戻ってきた時に画面をリロード
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         calendarView.reloadData()
     }
-    
-    
     
     func setUpCalendarview() {
         calendarView.minimumLineSpacing = 0
@@ -108,11 +110,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
+    
+    
 }
 
 //カレンダー関連
 extension ViewController: JTAppleCalendarViewDataSource {
+    
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = Calendar.current.timeZone
@@ -135,6 +141,7 @@ extension ViewController: JTAppleCalendarViewDataSource {
 }
 
 extension ViewController: JTAppleCalendarViewDelegate {
+    
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CustomCell", for: indexPath) as! CalendarCell
         cell.label.text = cellState.text
@@ -184,7 +191,7 @@ extension ViewController: JTAppleCalendarViewDelegate {
         formatter.dateFormat = "yyyy "
         let year = formatter.string(from: date)
         
-        formatter.dateFormat = "-MMMM-"
+        formatter.dateFormat = "- MMM -"
         let month = formatter.string(from: date)
         
         return year + month
@@ -192,8 +199,9 @@ extension ViewController: JTAppleCalendarViewDelegate {
     
 }
 
-//選択された日付に紐付くレシピを表示する
+//選択された日付に紐付くレシピをテーブルビューに表示する
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell")!
         let recipe = recipesForDate[indexPath.row]
@@ -204,6 +212,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipesForDate.count
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedRecipe = recipesForDate[indexPath.row]
         performSegue(withIdentifier: "RecipeViewController", sender: nil)
@@ -220,7 +229,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+//        delAlert()
+        
         if editingStyle == .delete {
+            
+            
             let selectedRecipe = recipesForDate[indexPath.row]
             try! realm.write {
                 realm.delete(selectedRecipe)
@@ -233,5 +247,46 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+
+    
+//    func delAlert() {
+//        
+//        let alert   = UIAlertController.init(
+//            title: "レシピの削除",
+//            message: "削除してよろしいですか？",
+//            preferredStyle: .actionSheet
+//        )
+//        
+//        alert.addAction(UIAlertAction(
+//            title: "削除",
+//            style: .destructive,
+//            handler: { (UIAlertAction) in
+//                print("削除")
+//                }
+//        ))
+//        
+//        alert.addAction(UIAlertAction(
+//            title: "キャンセル",
+//            style: .cancel,
+//            handler: nil)
+//        )
+//        
+//        present(alert, animated: true)
+//    }
+    
+//    func delRecipe(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) -> UITableView {
+//        let selectedRecipe = recipesForDate[indexPath.row]
+//        try! realm.write {
+//            realm.delete(selectedRecipe)
+//        }
+//        recipesForDate = recipes.filter { (recipe:Recipe) -> Bool in
+//            return Calendar.current.isDate(recipe.date, inSameDayAs: self.selectedDate)
+//        }
+//        tableView.deleteRows(at: [indexPath], with: .fade)
+//        return
+//    }
+    
+
 
 

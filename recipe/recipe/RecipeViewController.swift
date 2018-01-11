@@ -19,7 +19,7 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var image: UIImageView!
     
     @IBAction func onTapButton(_ sender: Any) {
-        delAlart()
+        delAlert()
     }
     
     let formatter = DateFormatter()
@@ -75,7 +75,7 @@ class RecipeViewController: UIViewController {
         
         let asset: PHAsset = aFirstObject
         let manager = PHImageManager.default()
-        manager.requestImage(for: asset, targetSize: CGSize(width: 140, height: 140), contentMode: .aspectFill, options: nil) { (image, info) in
+        manager.requestImage(for: asset, targetSize: CGSize(width: 60, height: 60), contentMode: .aspectFill, options: nil) { (image, info) in
             // imageをセットする
             self.image.image = image
         }
@@ -128,7 +128,7 @@ class RecipeViewController: UIViewController {
         }
     }
     
-    func delAlart() {
+    func delAlert() {
         
         let alert  = UIAlertController.init(
             title: "レシピの削除",
@@ -140,10 +140,14 @@ class RecipeViewController: UIViewController {
             title: "削除",
             style: .destructive,
             handler: { (UIAlertAction) in
-                self.delRecipe()
-        }))
+                self.delRecipe()}
+        ))
         
-        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(
+            title: "キャンセル",
+            style: .cancel,
+            handler: nil)
+        )
         
         present(alert, animated: true)
     }

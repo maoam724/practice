@@ -14,22 +14,25 @@ class RandomRecipeViewController: UIViewController {
     @IBAction func randomButton(_ sender: UIButton) {
        setRandomRecipe()
     }
+    
+    
+    
+    @IBOutlet weak var detailsButton: UIButton!
+    
 
-    
     @IBOutlet weak var todaysRecipeIs: UILabel!
-    
     @IBOutlet weak var randomRecipe: UILabel!
-    
-    @IBAction func details(_ sender: Any) {
-        performSegue(withIdentifier: "RecipeViewController", sender: sender)
-    }
     
     var recipeId:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setRandomRecipe()
+        randomRecipe.text = "何にしよう ？"
+        randomRecipe.font = UIFont(name: "Gill Sans", size: 50)
+        
+        detailsButton.addTarget(self, action: #selector(details), for: .touchUpInside)
+        detailsButton.isHidden = true
     }
     
     func setRandomRecipe() {
@@ -38,7 +41,9 @@ class RandomRecipeViewController: UIViewController {
         
         print(recipes[index].name)
         recipeId = recipes[index].id
-        randomRecipe.text = "＼　\(recipes[index].name)　／"
+        randomRecipe.text = "＼ \(recipes[index].name) ／"
+        detailsButton.isHidden = false
+        
     }
     
     func loadRecipes() -> Results<Recipe> {
@@ -47,14 +52,21 @@ class RandomRecipeViewController: UIViewController {
         return recipes
     }
     
+
+    
+    func details(sender: UIButton) {
+        print("secondButton押されたよ〜")
+        performSegue(withIdentifier: "ToDetail", sender: UIButton())
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.identifier ?? "ないよ〜")
         
-        if segue.identifier == "RecipeViewController" {
+        if segue.identifier == "ToDetail" {
             let recipeViewController = segue.destination as! RecipeViewController
         
             print(recipeId)
             recipeViewController.id = recipeId
+            
         }
     }
 

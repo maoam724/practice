@@ -104,7 +104,7 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate, UIImagePic
         let material = materialField.text ?? ""
         
         if (recipeName.isEmpty) {
-            print("nil だよ〜")
+            print("nilです")
             presentAlert()
             return
         }
@@ -132,8 +132,8 @@ class AddRecipeViewController: UIViewController, UITextFieldDelegate, UIImagePic
     
     func presentAlert() {
         let alert = UIAlertController.init(
-            title: "ダメだよ〜",
-            message: "料理名だけは入れてね〜",
+            title: "料理名が未記入です。",
+            message: "料理名を追加してください。",
             preferredStyle: .alert
         )
         
