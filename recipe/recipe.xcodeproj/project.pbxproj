@@ -13,12 +13,12 @@
 		341116381F0A83C7001A39E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341116361F0A83C7001A39E7 /* LaunchScreen.storyboard */; };
 		342F2E361FEA5725006D59DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 342F2E351FEA5725006D59DB /* Main.storyboard */; };
 		345438741FFCDB62002BED39 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345438731FFCDB62002BED39 /* SideMenu.swift */; };
+		3454387720276BFB002BED39 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3454387620276BFB002BED39 /* defaultImage.png */; };
 		3498B6661FB0995F006909AD /* RandomRacipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498B6651FB0995F006909AD /* RandomRacipesViewController.swift */; };
 		34AD32DC1F9B523F00F729FD /* RObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AD32DB1F9B523F00F729FD /* RObject.swift */; };
 		34EF4DD31F36D9AF003C2A51 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF4DD21F36D9AF003C2A51 /* Recipe.swift */; };
 		34EF4DD51F36DAED003C2A51 /* RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EF4DD41F36DAED003C2A51 /* RealmString.swift */; };
 		34F2AFC11F93239E001845F8 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2AFC01F93239E001845F8 /* RecipeViewController.swift */; };
-		34FC518A1FB9D32300D39808 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC51891FB9D32300D39808 /* defaultImage.png */; };
 		87338C912F12ECD628809F79 /* Pods_recipe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE6FA0C83AE93AC7B97B861 /* Pods_recipe.framework */; };
 		F53913DC1F1122F900AC11FA /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */; };
 		F57441FA1F111E1600818E82 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57441F91F111E1600818E82 /* CalendarCell.swift */; };
@@ -34,12 +34,12 @@
 		341116391F0A83C7001A39E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		342F2E351FEA5725006D59DB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		345438731FFCDB62002BED39 /* SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		3454387620276BFB002BED39 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		3498B6651FB0995F006909AD /* RandomRacipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomRacipesViewController.swift; sourceTree = "<group>"; };
 		34AD32DB1F9B523F00F729FD /* RObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RObject.swift; sourceTree = "<group>"; };
 		34EF4DD21F36D9AF003C2A51 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		34EF4DD41F36DAED003C2A51 /* RealmString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmString.swift; sourceTree = "<group>"; };
 		34F2AFC01F93239E001845F8 /* RecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
-		34FC51891FB9D32300D39808 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		7DF2029EE36CD128E2DC6BAD /* Pods-recipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-recipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-recipe/Pods-recipe.debug.xcconfig"; sourceTree = "<group>"; };
 		F53913DB1F1122F900AC11FA /* AddRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		F57441F91F111E1600818E82 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				341116341F0A83C7001A39E7 /* Assets.xcassets */,
 				341116361F0A83C7001A39E7 /* LaunchScreen.storyboard */,
 				341116391F0A83C7001A39E7 /* Info.plist */,
-				34FC51891FB9D32300D39808 /* defaultImage.png */,
+				3454387620276BFB002BED39 /* defaultImage.png */,
 			);
 			path = recipe;
 			sourceTree = "<group>";
@@ -150,7 +150,7 @@
 				TargetAttributes = {
 					341116291F0A83C6001A39E7 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = AZ28EH9G9N;
+						DevelopmentTeam = 3U5M63RLXB;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -180,8 +180,8 @@
 			files = (
 				341116381F0A83C7001A39E7 /* LaunchScreen.storyboard in Resources */,
 				341116351F0A83C7001A39E7 /* Assets.xcassets in Resources */,
-				34FC518A1FB9D32300D39808 /* defaultImage.png in Resources */,
 				342F2E361FEA5725006D59DB /* Main.storyboard in Resources */,
+				3454387720276BFB002BED39 /* defaultImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +289,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -311,6 +312,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -340,6 +342,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -355,6 +358,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -367,11 +371,14 @@
 			baseConfigurationReference = 7DF2029EE36CD128E2DC6BAD /* Pods-recipe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AZ28EH9G9N;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3U5M63RLXB;
 				INFOPLIST_FILE = recipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.recipe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maoam.RECIPEmemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -381,11 +388,14 @@
 			baseConfigurationReference = 06B9943250FD5FBFF6108D61 /* Pods-recipe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AZ28EH9G9N;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3U5M63RLXB;
 				INFOPLIST_FILE = recipe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.recipe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.maoam.RECIPEmemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

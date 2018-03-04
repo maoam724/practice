@@ -180,9 +180,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TyP-hz-mo1">
-                        <barButtonItem key="leftBarButtonItem" tag="2" title="•••" id="MMv-sO-njI" customClass="To">
+                        <barButtonItem key="leftBarButtonItem" tag="2" title="Random" id="MMv-sO-njI">
                             <connections>
-                                <segue destination="7Q9-Lc-vV7" kind="show" id="NeB-i9-ICP"/>
+                                <action selector="tapRandom:" destination="Nff-3s-eEU" id="y79-ap-6aW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="83u-Qf-JOX">
@@ -195,6 +195,7 @@
                         <outlet property="calendarView" destination="ZZG-fZ-gyg" id="MPc-GB-pmh"/>
                         <outlet property="recipiesTable" destination="RDV-Nx-aMt" id="TWR-Ad-oz6"/>
                         <segue destination="0b7-tl-nST" kind="show" identifier="RecipeViewController" id="9oi-LZ-qA2"/>
+                        <segue destination="7Q9-Lc-vV7" kind="show" identifier="ToRandom" id="08a-2q-n4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPW-b6-l5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,56 +214,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="料理名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSu-zs-PSL">
-                                <rect key="frame" x="16" y="294" width="138" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="料理名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tSu-zs-PSL">
+                                <rect key="frame" x="91" y="294" width="138" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="Omg-jt-tK3"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-t1-6yW">
-                                <rect key="frame" x="16" y="332" width="138" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZY3-t1-6yW">
+                                <rect key="frame" x="91" y="332" width="138" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="Ghe-ew-ltL"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="材料" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNl-jt-EsS">
-                                <rect key="frame" x="16" y="370" width="138" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="材料" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNl-jt-EsS">
+                                <rect key="frame" x="91" y="370" width="138" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="KzX-vk-3Hg"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yzq-df-qb8" userLabel="ImageView">
-                                <rect key="frame" x="88" y="80" width="144" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-iI-lL4" userLabel="chooseImage">
-                                <rect key="frame" x="64" y="216" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVH-iI-lL4" userLabel="chooseImage">
+                                <rect key="frame" x="89" y="216" width="62" height="30"/>
                                 <state key="normal" title="画像選択"/>
                                 <connections>
                                     <action selector="chooseImage:" destination="l8p-Fm-MF1" eventType="touchUpInside" id="kj6-WO-NMD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsW-Pq-ahW" userLabel="resetImage">
-                                <rect key="frame" x="190" y="216" width="65" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZsW-Pq-ahW" userLabel="resetImage">
+                                <rect key="frame" x="169" y="216" width="62" height="30"/>
                                 <state key="normal" title="画像削除"/>
                                 <connections>
                                     <action selector="resetImage:" destination="l8p-Fm-MF1" eventType="touchUpInside" id="aOh-zk-Rke"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日付" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltv-uT-r4O">
-                                <rect key="frame" x="16" y="256" width="138" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="日付" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ltv-uT-r4O">
+                                <rect key="frame" x="91" y="256" width="138" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="kxf-nW-TGr"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yzq-df-qb8" userLabel="ImageView">
+                                <rect key="frame" x="88" y="100" width="144" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="81g-PL-kIj"/>
+                                    <constraint firstAttribute="width" constant="144" id="aSX-pu-XYP"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ltv-uT-r4O" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" id="33g-QQ-6ed"/>
+                            <constraint firstItem="ZY3-t1-6yW" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" id="5sk-Ge-aKR"/>
+                            <constraint firstItem="QNl-jt-EsS" firstAttribute="top" secondItem="ZY3-t1-6yW" secondAttribute="bottom" constant="8" id="7nX-df-ZQw"/>
+                            <constraint firstItem="tSu-zs-PSL" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" id="Cep-Tk-OT9"/>
+                            <constraint firstItem="Yzq-df-qb8" firstAttribute="top" secondItem="19o-V1-Bcm" secondAttribute="bottom" constant="36" id="EuM-PM-DEc"/>
+                            <constraint firstItem="tSu-zs-PSL" firstAttribute="top" secondItem="Ltv-uT-r4O" secondAttribute="bottom" constant="8" id="KQa-w3-Lh2"/>
+                            <constraint firstItem="qVH-iI-lL4" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" constant="-40" id="R3t-i9-d0o"/>
+                            <constraint firstItem="qVH-iI-lL4" firstAttribute="top" secondItem="Yzq-df-qb8" secondAttribute="bottom" constant="13" id="TWp-ri-IsT"/>
+                            <constraint firstItem="Ltv-uT-r4O" firstAttribute="top" secondItem="qVH-iI-lL4" secondAttribute="bottom" constant="10" id="Y3a-Lp-7Tk"/>
+                            <constraint firstItem="QNl-jt-EsS" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" id="f9A-s3-ITi"/>
+                            <constraint firstItem="ZsW-Pq-ahW" firstAttribute="top" secondItem="Yzq-df-qb8" secondAttribute="bottom" constant="13" id="fjH-DG-g5Q"/>
+                            <constraint firstItem="ZsW-Pq-ahW" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" constant="40" id="qcp-I9-GPu"/>
+                            <constraint firstItem="Yzq-df-qb8" firstAttribute="centerX" secondItem="4Hv-Pf-SkX" secondAttribute="centerX" id="rzC-ws-WCQ"/>
+                            <constraint firstItem="ZY3-t1-6yW" firstAttribute="top" secondItem="tSu-zs-PSL" secondAttribute="bottom" constant="8" id="vBq-ko-hVm"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Recipe" id="rkq-4Z-Hgf" userLabel="Add Recipe">
@@ -412,7 +438,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUS-li-twL">
                                 <rect key="frame" x="137" y="346" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="詳しく"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -460,6 +486,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7yJ-hc-dnm"/>
+        <segue reference="9oi-LZ-qA2"/>
     </inferredMetricsTieBreakers>
 </document>

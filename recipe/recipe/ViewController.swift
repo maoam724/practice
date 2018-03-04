@@ -13,6 +13,13 @@ import RealmSwift
 
 class ViewController: UIViewController {
     
+    @IBAction func tapRandom(_ sender: Any) {
+        if recipes.count == 0 {
+            randomAlert()
+        } else {
+            performSegue(withIdentifier: "ToRandom", sender: nil)
+        }
+    }
     
     @IBOutlet weak var recipiesTable: UITableView!
     
@@ -244,6 +251,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+}
+
+extension ViewController {
+    
+    
+
+    func randomAlert() {
+        let alert = UIAlertController(title: "レシピが登録されてません", message: "レシピが登録されてから使えます！", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okButton)
+        present(alert, animated: true, completion: nil)
     }
     
 }

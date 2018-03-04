@@ -29,7 +29,6 @@ class RandomRecipeViewController: UIViewController {
         super.viewDidLoad()
         
         randomRecipe.text = "何にしよう ？"
-        randomRecipe.font = UIFont(name: "Gill Sans", size: 50)
         
         detailsButton.addTarget(self, action: #selector(details), for: .touchUpInside)
         detailsButton.isHidden = true

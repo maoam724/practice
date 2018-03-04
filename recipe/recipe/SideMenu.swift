@@ -6,10 +6,11 @@
 //  Copyright © 2018年 mao takagai. All rights reserved.
 //
 
-import UIKit
-import Foundation
-
-class SideMenu: UIViewController {
+//import UIKit
+//import Foundation
+//
+//class SideMenu: UIViewController {}
+//    
     
     
     
@@ -19,5 +20,3 @@ class SideMenu: UIViewController {
     
     
     
-    
-}
